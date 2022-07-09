@@ -1,0 +1,42 @@
+---
+- name: copy jenkins lts key
+  ansible.builtin.copy:
+    src: /files/debian/debian_lts_jenkins.io.key
+    dest: /usr/share/keyrings/jenkins-keyring.asc
+    owner: root
+    group: root
+    mode: '0644'
+  when: jenkins_lts
+
+- name: copy jenkins lts apt conf
+  ansible.builtin.copy:
+    src: /files/debian/debian_lts_jenkins.list
+    dest: /etc/apt/sources.list.d/jenkins.list
+    owner: root
+    group: root
+    mode: '0644'
+  when: jenkins_lts
+
+- name: copy jenkins weekly key
+  ansible.builtin.copy:
+    src: /files/debian/debian_weekly_jenkins.io.key
+    dest: /usr/share/keyrings/jenkins-keyring.asc
+    owner: root
+    group: root
+    mode: '0644'
+  when: jenkins_weekly
+
+- name: copy jenkins weekly apt conf
+  ansible.builtin.copy:
+    src: /files/debian/debian_lts_jenkins.list
+    dest: /etc/apt/sources.list.d/jenkins.list
+    owner: root
+    group: root
+    mode: '0644'
+  when: jenkins_weekly
+
+- name: install jenkins
+  ansible.builtin.apt:
+    pkg:
+    - fontconfig
+    - openjdk-11-jre
