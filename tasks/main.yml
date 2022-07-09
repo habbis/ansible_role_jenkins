@@ -8,7 +8,7 @@
 
 - name: copy jenkins cli
   ansible.builtin.copy:
-    src: /files/cli/jenkins-cli.jar
+    src: files/cli/jenkins-cli.jar
     dest: /usr/local/bin/jenkins-cli.jar
     #owner: root
     #group: root
@@ -17,7 +17,7 @@
 
 - name: copy jenkins cli
   ansible.builtin.copy:
-    src: /files/scripts/jenkins_plugin_upgrade.sh
+    src: files/scripts/jenkins_plugin_upgrade.sh
     dest: /usr/local/jenkins_plugin_upgrade.sh
     #owner: root
     #group: root
