@@ -35,6 +35,11 @@
     mode: '0644'
   when: jenkins_weekly
 
+- name: apt update for ubuntu
+  command: apt-get update -y 
+  when: (ansible_distribution == "Ubuntu")
+  
+
 - name: install jenkins
   ansible.builtin.apt:
     pkg:
@@ -46,6 +51,6 @@
 - name: start, enable jenkins
   ansible.builtin.systemd:
     name: jenkins
-    enabled: yes
     state: started
-    ignore_errors: yes
+    enabled: yes
+  ignore_errors: yes

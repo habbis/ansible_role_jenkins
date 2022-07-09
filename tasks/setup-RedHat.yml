@@ -52,4 +52,4 @@
     name: jenkins
     enabled: yes
     state: started
-    ignore_errors: yes
+  ignore_errors: yes
