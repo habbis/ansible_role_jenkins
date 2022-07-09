@@ -39,4 +39,12 @@
   ansible.builtin.apt:
     pkg:
     - fontconfig
-    - openjdk-11-jre
+    - java-11-openjdk
+    - jenkins
+
+
+- name: start, enable jenkins
+  ansible.builtin.systemd:
+    name: jenkins
+    enabled: yes
+    state: started
