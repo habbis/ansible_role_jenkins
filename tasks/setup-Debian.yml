@@ -44,7 +44,7 @@
   ansible.builtin.apt:
     pkg:
     - fontconfig
-    - openjdk-11-jre
+    - default-jre
     - jenkins
     update_cache: yes
 
